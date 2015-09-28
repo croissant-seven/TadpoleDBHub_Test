@@ -1,0 +1,25 @@
+apply plugin: 'eclipse'
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.7
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile 'org.codehaus.groovy:groovy-all:2.4.1'
+	testCompile 'org.gebish:geb-spock:0.12.2'
+	testCompile 'org.gebish:geb-junit4:0.12.2'
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+        exclude group: 'org.codehaus.groovy'
+    }
+	testCompile 'org.seleniumhq.selenium:selenium-firefox-driver:2.46.0'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.7'
+}
+
